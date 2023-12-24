@@ -29,4 +29,8 @@ initialize();
 ion-app {
   background: rgba(0, 0, 0, 0.4);
 }
+
+* {
+  user-select: none;
+}
 </style>

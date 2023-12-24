@@ -212,7 +212,6 @@ const search = (event: any) => {
     --color: var(--ion-color-step-850, #ffffff);
     font-size: 1.25rem;
     font-weight: 500;
-    pointer-events: none;
   }
 
   ion-searchbar {

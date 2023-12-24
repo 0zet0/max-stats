@@ -21,9 +21,9 @@
           <ion-card-title class="auto-truncate"
             >{{ idx + 1 }}. {{ item.title }}</ion-card-title
           >
-          <ion-card-title class="auto-truncate mt-10 text-right w-full"
-            >{{ item.value }}</ion-card-title
-          >
+          <ion-card-title class="auto-truncate mt-10 text-right w-full">{{
+            item.value
+          }}</ion-card-title>
           <gradient-progressbar
             :options="{
               value: item.value,
@@ -125,6 +125,7 @@ const ionInfinite = (ev: InfiniteScrollCustomEvent) => {
     --color: var(--ion-color-step-850, #ffffff);
     font-size: 1.25rem;
     font-weight: 500;
+    user-select: none;
   }
 }
 </style>
