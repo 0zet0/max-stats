@@ -151,7 +151,7 @@ const items = reactive([
     items: IntelProssesors,
     onClick: (item: any) => {
       statsStore.selectStats(item);
-      router.push("stats-ml");
+      router.push("stats");
     },
   },
 ]);

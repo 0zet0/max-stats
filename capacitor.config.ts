@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.myApp',
-  appName: 'myApp',
+  appId: 'com.max-stats.www',
+  appName: 'max stats',
   webDir: 'dist',
   server: {
     androidScheme: 'https'
