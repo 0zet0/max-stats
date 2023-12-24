@@ -20,17 +20,13 @@ initialize();
   width: 100%;
 }
 
-@media only screen and (min-width: 1168px) {
-  ion-router-outlet {
-    width: 600px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-}
-
 @media only screen and (min-width: 768px) {
   .footer {
     width: 600px;
   }
+}
+
+ion-app {
+  background: rgba(0, 0, 0, 0.4);
 }
 </style>

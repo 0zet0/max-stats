@@ -7,6 +7,7 @@
         </ion-buttons>
         <ion-searchbar
           class="events-auto"
+          slot="end"
           placeholder="Поиск"
           :debounce="1000"
           @ionInput="search($event)"
@@ -218,6 +219,8 @@ const search = (event: any) => {
     --color: #fff;
     --clear-button-color: #fff;
     --icon-color: #fff;
+    text-align: left;
+    max-width: 400px;
 
     input {
       --border-radius: 50vh;
