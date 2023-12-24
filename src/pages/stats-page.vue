@@ -41,10 +41,10 @@
       class="stats-page__modal"
       ref="modal"
       :initial-breakpoint="0.5"
-      :breakpoints="[0, 0.5 ,0.9]"
+      :breakpoints="[0, 0.5, 0.9]"
       :backdrop-breakpoint="0"
     >
-      <scrollbar-list class="scrollbar-list p-20" height="calc(90% - 20px)">
+      <scrollbar-list class="scrollbar-list" height="calc(90% - 20px)">
         <ion-card-title class="auto-truncate text-center"
           >Характеристики</ion-card-title
         >
@@ -206,6 +206,7 @@ onIonViewWillLeave(() => {
 
   .scrollbar-list {
     margin-top: 20px;
+    padding: 0 20px;
   }
 }
 </style>
