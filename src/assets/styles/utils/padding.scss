@@ -1,0 +1,23 @@
+.p {
+    @for $i from 1 through 50 {
+        &-#{$i} {
+            padding: $i + 0px;
+        }
+
+        &t-#{$i} {
+            padding-top: $i + 0px;
+        }
+
+        &r-#{$i} {
+            padding-right: $i + 0px;
+        }
+
+        &b-#{$i} {
+            padding-bottom: $i + 0px;
+        }
+
+        &l-#{$i} {
+            padding-left: $i + 0px;
+        }
+    }
+}

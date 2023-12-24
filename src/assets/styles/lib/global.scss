@@ -1,0 +1,94 @@
+$success: #2cb162;
+$error: #E75A5C;
+$main: #E44550;
+$secondary: #FABB3E;
+
+@mixin font-gradient($color) {
+  background: $color;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin borderGrad($bgColor, $radius) {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  border-radius: $radius;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  background: $bgColor border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@mixin scrollbarY($width: 6px, $track: #000, $thumb: #fff) {
+  overflow: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: $width;
+
+    &-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: $track;
+    }
+
+    &-thumb {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: $thumb;
+    }
+  }
+}
+
+@mixin scrollbarX($height: 6px, $track: #000, $thumb: #fff) {
+  overflow: hidden;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: $height;
+
+    &-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: $track;
+    }
+
+    &-thumb {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: $thumb;
+    }
+  }
+}
+
+@mixin margin-list($margin) {
+  margin-bottom: $margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin backdrop-blur($backgroundColor, $blur) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $backgroundColor;
+    backdrop-filter: $blur;
+    z-index: -1;
+  }
+}
+
+@mixin img-size-full($width: 100%, $height: 100%) {
+  img {
+    width: $width;
+    height: $height;
+    object-fit: contain;
+    object-position: center center;
+  }
+}

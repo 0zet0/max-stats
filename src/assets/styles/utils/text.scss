@@ -1,0 +1,132 @@
+.truncate {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-wrap {
+    word-break: break-all;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.auto-truncate {
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.font-700-36 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.font-700-24 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.font-700-12 {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.font-600-30 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.font-600-22 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.font-600-20 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.font-600-14 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.font-600-12 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.font-500-12 {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.font-500-18 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.font-400-36 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.font-400-32 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.font-400-20 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.font-400-18 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.font-400-16 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.font-400-15 {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.font-400-13 {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.font-400-12 {
+    font-size: 12px;
+    font-weight: 400;
+}

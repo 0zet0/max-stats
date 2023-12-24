@@ -1,0 +1,58 @@
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute !important;
+}
+.abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.fixed {
+    position: fixed;
+}
+.sticky {
+    position: sticky;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.inset{
+    &-t {
+        top: 0;
+    }
+    &-r {
+        right: 0;
+    }
+    &-b {
+        bottom: 0;
+    }
+    &-l {
+        left: 0;
+    }
+}
+
+
+
+@for $i from 0 through 50 {
+    .top-#{$i} {
+        top: $i + 0px;
+    }
+    .right-#{$i} {
+        right: $i + 0px;
+    }
+    .bottom-#{$i} {
+        bottom: $i + 0px;
+    }
+    .left-#{$i} {
+        left: $i + 0px;
+    }
+}

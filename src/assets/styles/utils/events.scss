@@ -1,0 +1,31 @@
+.events-none {
+    pointer-events: none;
+
+    >* {
+        pointer-events: none;
+    }
+}
+
+.events-auto {
+    pointer-events: auto;
+
+    >* {
+        pointer-events: auto;
+    }
+}
+
+.isWaiting {
+    pointer-events: none !important;
+
+    >* {
+        pointer-events: none !important;
+
+        >* {
+            pointer-events: none !important;
+
+            >* {
+                pointer-events: none !important;
+            }
+        }
+    }
+}
