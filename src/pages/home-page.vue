@@ -5,13 +5,19 @@
         <ion-buttons class="events-auto" slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
+        <ion-searchbar
+          class="events-auto"
+          placeholder="Поиск"
+          :debounce="1000"
+          @ionInput="search($event)"
+        ></ion-searchbar>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding events-auto">
       <ion-list>
         <ion-card
           class="flex justify-between items-center"
-          v-for="(item, idx) in items"
+          v-for="(item, idx) in searchedItems"
           :key="idx"
           @click="item.onClick(item)"
         >
@@ -37,7 +43,39 @@
       </ion-infinite-scroll>
     </ion-content>
     <ion-menu content-id="main-content" class="events-auto">
-      <ion-content class="ion-padding"></ion-content>
+      <ion-content class="ion-padding events-auto">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button class="events-auto" expand="block" fill="clear">
+                <ion-icon slot="start" :icon="optionsOutline"></ion-icon>
+                <div class="w-full text-left">Параметры</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button class="events-auto" expand="block" fill="clear">
+                <ion-icon slot="start" :icon="informationCircle"></ion-icon>
+                <div class="w-full text-left">О приложении</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button
+                class="events-auto"
+                expand="block"
+                fill="clear"
+                @click="App.exitApp()"
+              >
+                <ion-icon slot="start" :icon="exitOutline"></ion-icon>
+                <div class="w-full text-left">Выйти</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
     </ion-menu>
   </ion-page>
 </template>
@@ -65,8 +103,16 @@ import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
+  IonSearchbar,
+  IonIcon,
+  IonButton,
+  IonGrid,
+  IonRow,
+  IonCol,
 } from "@ionic/vue";
-import { reactive } from "vue";
+import { informationCircle, optionsOutline, exitOutline } from "ionicons/icons";
+import { App } from "@capacitor/app";
+import { computed, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStatsStore } from "@/entities/stats";
 import {
@@ -77,6 +123,8 @@ import {
 
 const router = useRouter();
 const statsStore = useStatsStore();
+
+const query = ref("");
 
 const items = reactive([
   {
@@ -105,8 +153,16 @@ const items = reactive([
   },
 ]);
 
+const searchedItems = computed(() =>
+  items.filter((d) => d.title.toLowerCase().indexOf(query.value) > -1)
+);
+
 const ionInfinite = (ev: InfiniteScrollCustomEvent) => {
   setTimeout(() => ev.target.complete(), 500);
+};
+
+const search = (event: any) => {
+  query.value = event.target.value.toLowerCase();
 };
 </script>
 
@@ -155,6 +211,23 @@ const ionInfinite = (ev: InfiniteScrollCustomEvent) => {
     --color: var(--ion-color-step-850, #ffffff);
     font-size: 1.25rem;
     font-weight: 500;
+    pointer-events: none;
+  }
+
+  ion-searchbar {
+    --color: #fff;
+    --clear-button-color: #fff;
+    --icon-color: #fff;
+
+    input {
+      --border-radius: 50vh;
+      --background: rgba(47, 60, 80, 0.4);
+    }
+  }
+
+  ion-button {
+    --background: rgba(47, 60, 80, 0.4);
+    --color: #fff;
   }
 }
 </style>
