@@ -17,26 +17,28 @@
     <ion-content class="ion-padding events-auto">
       <ion-list>
         <ion-card
-          class="flex justify-between items-center"
+          class="flex justify-between items-center gap-20"
           v-for="(item, idx) in searchedItems"
           :key="idx"
           @click="item.onClick(item)"
         >
           <ion-card-title>{{ item.title }}</ion-card-title>
-          <svg
-            width="19"
-            height="18"
-            viewBox="0 0 19 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M14.5858 10.0001H0V8.00008H14.5858L8.29289 1.70718L9.70711 0.292969L18.4142 9.00008L9.70711 17.7072L8.29289 16.293L14.5858 10.0001Z"
-              fill="white"
-            />
-          </svg>
+          <div class="min-w-19">
+            <svg
+              width="19"
+              height="18"
+              viewBox="0 0 19 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M14.5858 10.0001H0V8.00008H14.5858L8.29289 1.70718L9.70711 0.292969L18.4142 9.00008L9.70711 17.7072L8.29289 16.293L14.5858 10.0001Z"
+                fill="white"
+              />
+            </svg>
+          </div>
         </ion-card>
       </ion-list>
       <ion-infinite-scroll @ionInfinite="ionInfinite">
