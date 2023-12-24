@@ -24,7 +24,7 @@ initialize();
   ion-router-outlet {
     width: 600px;
     margin: 0 auto;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 }
 
