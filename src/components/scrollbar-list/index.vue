@@ -46,7 +46,6 @@ onMounted(() => {
 
 .scrollbar-list {
   position: relative;
-  backface-visibility: hidden;
   width: 100%;
 
   @include scrollbarY(0);

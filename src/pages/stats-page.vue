@@ -19,12 +19,14 @@
           :key="idx"
           @click="showInfo(item)"
         >
-          <ion-card-title class="auto-truncate"
-            >{{ idx + 1 }}. {{ item.title }}</ion-card-title
-          >
-          <ion-card-title class="auto-truncate mt-10 text-right w-full">{{
-            item.value
-          }}</ion-card-title>
+          <div class="flex justify-between flex-end gap-20">
+            <ion-card-title class="auto-truncate w-full font-500-16"
+              >{{ idx + 1 }}. {{ item.title }}</ion-card-title
+            >
+            <ion-card-title class="text-nowrap font-400-13">{{
+              item.value
+            }}</ion-card-title>
+          </div>
           <gradient-progressbar
             :options="{
               value: item.value,
@@ -152,23 +154,21 @@ onIonViewWillLeave(() => {
   }
 
   ion-card {
+    position: relative;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.17);
     background: rgba(47, 60, 80, 0.4);
     box-shadow: 0px 4px 12px 0px rgba(28, 37, 44, 0.05);
-    padding: 16px;
+    padding: 10px;
     transition: 0.3s;
 
     &:hover {
-      padding: 16px 10px 16px 16px;
+      padding: 10px 16px;
     }
   }
 
   ion-card-title {
-    --color: var(--ion-color-step-850, #ffffff);
-    font-size: 1.25rem;
-    font-weight: 500;
-    user-select: none;
+    --color: #ffffff;
   }
 }
 </style>
@@ -186,15 +186,10 @@ onIonViewWillLeave(() => {
     background: rgba(47, 60, 80, 0.4);
     box-shadow: 0px 4px 12px 0px rgba(28, 37, 44, 0.05);
     padding: 16px;
-    transition: 0.3s;
-
-    &:hover {
-      padding: 16px 10px 16px 16px;
-    }
   }
 
   ion-card-title {
-    --color: var(--ion-color-step-850, #ffffff);
+    --color: #ffffff;
     font-size: 1.25rem;
     font-weight: 500;
     user-select: none;

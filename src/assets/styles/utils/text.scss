@@ -4,6 +4,11 @@
     text-overflow: ellipsis !important;
 }
 
+.text-nowrap {
+    white-space: nowrap;
+    min-width: fit-content;
+}
+
 .text-center {
     text-align: center;
 }
@@ -79,6 +84,11 @@
 .font-600-12 {
     font-size: 12px;
     font-weight: 600;
+}
+
+.font-500-16 {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .font-500-12 {
