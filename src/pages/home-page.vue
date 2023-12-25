@@ -14,7 +14,7 @@
         ></ion-searchbar>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding events-auto">
+    <ion-content class="ion-padding events-auto" >
       <ion-list>
         <ion-card
           class="flex justify-between items-center gap-20"

@@ -105,7 +105,7 @@ import { ScrollbarList } from "@/components/scrollbar-list";
 const statsStore = useStatsStore();
 
 const showItemsCount = ref(25);
-const selectedStats = ref({});
+const selectedStats = ref({}) as any;
 const modal = ref();
 
 const ionInfinite = (ev: InfiniteScrollCustomEvent) => {

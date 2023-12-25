@@ -6,14 +6,14 @@
 
 <script setup lang="ts">
 import { IonApp, IonRouterOutlet } from "@ionic/vue";
-import { initializeAdMob, banner } from "@/ads";
+// import { initializeAdMob, banner } from "@/ads";
 
-async function initialize() {
-  await initializeAdMob();
-  await banner();
-}
+// async function initialize() {
+//   await initializeAdMob();
+//   await banner();
+// }
 
-initialize();
+// initialize();
 </script>
 <style lang="scss">
 .footer {

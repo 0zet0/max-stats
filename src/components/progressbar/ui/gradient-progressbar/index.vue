@@ -9,27 +9,22 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
-export default {
-  name: "GradientProgressbar",
-  props: {
-    options: {
-      type: Object,
-      default: () => ({
-        value: 0,
-        maxValue: 0,
-      }),
-    },
-  },
-  setup() {
-    const isMounted = ref(false);
 
-    onMounted(() => setTimeout(() => (isMounted.value = true), 100));
-
-    return { isMounted };
+defineProps({
+  options: {
+    type: Object,
+    default: () => ({
+      value: 0,
+      maxValue: 0,
+    }),
   },
-};
+});
+
+const isMounted = ref(false);
+
+onMounted(() => setTimeout(() => (isMounted.value = true), 100));
 </script>
 
 <style lang="scss" scoped>
