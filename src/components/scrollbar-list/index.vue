@@ -1,36 +1,42 @@
 <template>
-  <div class="scrollbar-list" :style="{ height }">
-    <ion-content style="--background: transparent">
-      <ion-list style="--background: transparent" ref="scrollcontainer">
-        <slot></slot>
-      </ion-list>
-    </ion-content>
+  <div class="scrollbar-list" ref="scrollcontainer" :style="{ height }">
+    <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonList } from "@ionic/vue";
-import { nextTick, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
 defineProps({
   height: { type: String, default: "auto" },
 });
 
 const scrollcontainer = ref();
+const rect = ref({ height: 0 });
+const stopPropagation = ref(false);
 
 onMounted(() => {
   scrollcontainer.value.ontouchstart = (e: Event) => {
+    rect.value = scrollcontainer.value.getBoundingClientRect();
+    stopPropagation.value = false;
+
+    setTimeout(() => {
+      stopPropagation.value = true;
+    }, 100);
+  };
+
+  scrollcontainer.value.ontouchend = () => {
+    stopPropagation.value = true;
+  };
+
+  scrollcontainer.value.ontouchmove = (e: Event) => {
     const { scrollTop, scrollHeight } = scrollcontainer.value;
-    const { height } = scrollcontainer.value.getBoundingClientRect();
 
-    if (height + 1 > scrollHeight) return;
-
-    const bottomOfList = scrollTop + height + 1 >= scrollHeight;
-    if (scrollTop !== 0 && !bottomOfList) e.stopPropagation();
-    if (scrollTop !== 0 && bottomOfList) return;
-    if (scrollTop === 0 && !bottomOfList) return;
+    const bottomOfList = scrollTop + rect.value.height + 1 >= scrollHeight;
+    if ((scrollTop === 0 || bottomOfList) && stopPropagation.value) return;
 
     e.stopPropagation();
+    stopPropagation.value = false;
   };
 });
 </script>
@@ -40,11 +46,9 @@ onMounted(() => {
 
 .scrollbar-list {
   position: relative;
+  backface-visibility: hidden;
   width: 100%;
 
-  ion-content,
-  ion-list {
-    background: #28333f;
-  }
+  @include scrollbarY(0);
 }
 </style>
