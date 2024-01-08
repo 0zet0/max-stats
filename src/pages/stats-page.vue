@@ -42,17 +42,17 @@
     <ion-modal
       class="stats-page__modal"
       ref="modal"
-      :initial-breakpoint="0.5"
-      :breakpoints="[0, 0.5, 0.9]"
+      :initial-breakpoint="0.9"
+      :breakpoints="[0, 0.9]"
       :backdrop-breakpoint="0"
     >
-      <ion-card-title
-        class="stats-page__modal-header auto-truncate text-center"
-      >
-        Характеристики
-      </ion-card-title>
       <ion-content>
         <scrollbar-list class="scrollbar-list" height="calc(90% - 25px)">
+          <ion-card-title
+            class="stats-page__modal-header text-center"
+          >
+            Характеристики
+          </ion-card-title>
           <ion-card class="flex flex-col">
             <ion-card-title class="auto-truncate">{{
               selectedStats.title
@@ -182,6 +182,7 @@ onIonViewWillLeave(() => {
   // --height: auto;
   --background: #28333f;
   --border-radius: 20px 20px 0 0;
+  --overflow: hidden !important;
 
   ion-card {
     border-radius: 12px;
@@ -208,15 +209,14 @@ onIonViewWillLeave(() => {
   }
 
   .scrollbar-list {
+    top: 20px;
     padding: 0 20px;
   }
 
   &-header {
-    padding: 20px 0;
+    padding:  0 0 20px 0;
     height: fit-content;
     width: 100%;
-    box-shadow: 0px 4px 23px 0px rgba(0, 0, 0, 0.349);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.17);
     z-index: 2;
   }
 }

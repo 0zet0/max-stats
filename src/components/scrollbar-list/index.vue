@@ -96,7 +96,7 @@ onMounted(() => {
 @import "@/assets/styles/lib/global.scss";
 
 .scrollbar-list {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
